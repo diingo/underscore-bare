@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>Underscore Bare</title>
+  <style type="text/css">
+    #templates { display: none; }
+    #scores .score {
+      background: #ddd;
+      padding: 1px 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="scores">
+
+</div>
+
+<div id="templates">
+    <div class="score">
+      <p><%= name %> scored <%= score %> points.</p>
+    </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript">
+  // For a later attempt at iterating through a list
+  // var scores = [
+  // { name: 'Burt', score: 30 },
+  // { name: 'Jlo', score: 20 },
+  // { name: 'Puddles', score: 10 }
+  // ];
+  // var eachScore = function(){
+  //   for(var i=0; i<scores.length; i++) { 
+  //     return scores[i] 
+  //   }
+  // };
+  var scoreTemplateHtml = $('#templates .score').html();
+  var scoreTemplate = _.template(scoreTemplateHtml);
+
+  // Not working - I don't get Ed and his score
+  var newScoreHtml = scoreTemplate({ name: 'Ed', score: 1001 });
+
+  
+
+  $('#scores').append(newScoreHtml);
+</script>
+
+</body>
+</html>
