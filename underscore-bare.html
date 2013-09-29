@@ -27,26 +27,19 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
 <script type="text/javascript">
-  
+
   var scores = [
-  { name: 'Burt', score: 30 },
-  { name: 'Jlo', score: 20 },
-  { name: 'Puddles', score: 10 }
+    { name: 'Burt', score: 30 }ß,
+    { name: 'Oxle', score: 20 },
+    { name: 'Snoopy', score: 10 }
   ];
-  var eachScore = function(){
-    for(var i=0; i < scores.length; i++) { 
-      return scores[i];
+    var scoreTemplateHtml = $('#templates .score').html();
+    var scoreTemplate = _.template(scoreTemplateHtml);
+    for (var i=0; i < scores.length ;i++) {
+      var newScoreHtml = scoreTemplate(scores[i]);
+      $('#scores').append(newScoreHtml);
     }
-  };
-  var scoreTemplateHtml = $('#templates .score').html();
-  var scoreTemplate = _.template(scoreTemplateHtml);
 
-  // IT only shows Burt and his score ...
-  var newScoreHtml = scoreTemplate(eachScore());
-
-  
-
-  $('#scores').append(newScoreHtml);
 </script>
 
 </body>
